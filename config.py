@@ -1,5 +1,2 @@
-token = "1447847227:AAFth_610FvdVEmoj4PGKqfJE-6ekm9WCno"
-id = "768779619"
-QIWI_TOKEN = " "
-QIWI_ACCOUNT = " "
-op = "@por0vos1k"
+token = "text" #your bot token
+id = "text" #administrator id
