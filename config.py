@@ -1,2 +1,2 @@
-token = "text" # Bot's token
-id = "text" # Admin's id
+token = "text"
+id = "text"
