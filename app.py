@@ -1,14 +1,15 @@
-#Production by Famaxth
-#Telegram - @famaxth
+# -*- coding: utf-8 -*-
 
-
-import config
 import telebot
 from telebot import types
 
+import config
+
+
 bot = telebot.TeleBot(config.token)
 
-@bot.message_handler(commands=["start"])
+
+@bot.message_handler(commands=['start'])
 def first_command(message):
     bot.send_message(message.chat.id, "Welcome!")
     start = telebot.types.ReplyKeyboardMarkup(True, False)
@@ -20,14 +21,14 @@ def first_command(message):
     bot.send_message(message.from_user.id, 'Select the desired section: ', reply_markup=start)
 
 
-@bot.message_handler(commands=["help"])
+@bot.message_handler(commands=['help'])
 def send_help(message):
     bot.send_message(message.chat.id, "List of available commands:\n\n/start - To start working with the bot\n/help - List of available commands\n/info - Find out information about the shop")
 
 
-@bot.message_handler(commands=["info"])
+@bot.message_handler(commands=['info'])
 def send_help(message):
-    bot.send_message(message.chat.id, "My creator is @por0vos1k.\n\nThis project is on github: https://github.com/Berl4n/FirstProject")
+    bot.send_message(message.chat.id, "My creator is @por0vos1k.\n\nThis project is on github: https://github.com/famaxth/FirstProject")
 
 
 @bot.callback_query_handler(func=lambda call: True)
@@ -54,7 +55,8 @@ def callback_inline(call):
         else:
             bot.send_message(call.message.chat.id, "Nothing is clear!\n\nList of available commands /help")
 
-@bot.message_handler(content_types=["text"])
+
+@bot.message_handler(content_types=['text'])
 def send_otziv(message):
     if message.text == '💌 Reviews':
         keyboard = types.InlineKeyboardMarkup()
@@ -96,8 +98,6 @@ def send_otziv(message):
         bot.send_message(message.chat.id, "🗂 Product catalog\n\nSelect a category:", reply_markup=keyboard)
     else:
         bot.send_message(message.chat.id, "Nothing is clear!\n\nList of available commands /help")
-
-
 
 
 if __name__ == '__main__':
